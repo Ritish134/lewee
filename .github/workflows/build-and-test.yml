@@ -72,5 +72,5 @@ jobs:
       - name: Pack
         run: dotnet pack ./Lewee.sln --configuration Release --nologo /p:PackageVersion=${{ steps.version.outputs.fullSemVer }} --output ./output
       - name: Publish to NuGet
-        run: dotnet nuget push ./output/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+        run: dotnet nuget push ./output/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --skip-duplicate
         if: github.ref == 'refs/heads/main'
